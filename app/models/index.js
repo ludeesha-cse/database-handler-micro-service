@@ -7,6 +7,7 @@ const db = {};
 db.mongoose = mongoose;
 db.url = dbConfig.url;
 db.user = require("./user.model.js")(mongoose);
+db.trip = require("./trip.model.js")(mongoose);
 db.hotel = require("./hotel.model.js")(mongoose);
 
 module.exports = db;
