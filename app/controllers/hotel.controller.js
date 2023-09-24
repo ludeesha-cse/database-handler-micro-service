@@ -2,7 +2,7 @@ const db = require("../models");
 const Hotel = db.hotel;
 
 // Create and Save a new hotel
-exports.create = async (req, res) => {
+exports.createHotel = async (req, res) => {
   // Validate request
   if (!req.body.userID) {
     res.status(400).send({ message: "Content can not be empty!" });
@@ -27,7 +27,6 @@ exports.create = async (req, res) => {
     }
     // If no duplicate documents are found, create and save the new document
     const hotel = new Hotel({
-      userID: userID,
       hotel_id: hotel_id,
       hotel_name: req.body.hotel_name,
       city: req.body.city,

@@ -1,8 +1,8 @@
 module.exports = mongoose => {
     var schema = mongoose.Schema(
       {
-        userID: {type: String, required: true},
         hotel_id: {type: String, required: true},
+        room_no: {type: String, required: true},
         hotel_name: {type: String, required: true},
         city: {type: String, required: true},
         review_score: {type: Number, required: true},

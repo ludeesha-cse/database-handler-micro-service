@@ -12,6 +12,7 @@ exports.create = (req, res) => {
   // Create a User
   const user = new User({
     _id: req.body.userID,
+    token: req.body.token,
     address: req.body.address,
     userFirstName: req.body.userFirstName,
     userSecondName: req.body.userSecondName,
@@ -60,14 +61,20 @@ exports.findAll = (req, res) => {
 exports.findOne = (req, res) => {
 
   // check if the request comes from an adimin account or from the owner of the account
-
+  const token = req.body.token;
   const id = req.params.id;
 
   User.findById(id)
     .then(data => {
       if (!data)
         res.status(404).send({ message: "Not found User with id " + id });
-      else res.send(data);
+      else {
+        if(data.token != req.body.token){ 
+          res.status(404).send({ message: "User with " + id + "does not have accecc to this" });
+          return;
+        } // check if the token is the same
+        else{res.send(data);}
+      }
     })
     .catch(err => {
       res
@@ -149,3 +156,20 @@ exports.deleteAll = (req, res) => {
       });
     });
 };
+
+
+exports.updateToken = (req, res) => {
+  
+    // check if the request comes from an adimin account or from the owner of the account
+  
+    if (!req.body.userID) {
+      return res.status(400).send({
+        message: "Data to update can not be empty!"
+      });
+    }
+
+    const userID = req.body.userID;
+    const token = req.body.token;
+
+    
+  }

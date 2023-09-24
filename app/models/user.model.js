@@ -1,15 +1,15 @@
-
-
 module.exports = mongoose => {
     var schema = mongoose.Schema(
       {
         _id: {type: String, required: true},
+        token: {type: String, required: true},
         userFirstName: {type: String, required: true},
         userSecondName: {type: String, required: true},
+        age:{type:Number, required: true},
+        email:{type: String, required: true, unique: true},
         address:{type: String, required: false},
         userPhoto:{type: String, required: false},
-        age:{type:Number, required: true},
-        email:{type: String, required: true},
+
       },
       { timestamps: true }
     );
