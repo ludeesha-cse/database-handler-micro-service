@@ -19,6 +19,7 @@ module.exports = mongoose => {
       object.id = _id;
       return object;
     });
+
     const User = mongoose.model("user", schema);
     return User;
   };

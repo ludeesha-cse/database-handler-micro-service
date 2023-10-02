@@ -1,5 +1,4 @@
 const dbConfig = require("../config/db.config.js");  // imports the database configuration
-
 const mongoose = require("mongoose");
 mongoose.Promise = global.Promise;
 
