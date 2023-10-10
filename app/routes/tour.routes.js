@@ -6,7 +6,7 @@ module.exports = app => {
     var router = require("express").Router();
   
     // Store a new destination
-    router.post("/locations", tour.create);
+    router.post("/location", tour.create);
 
     app.use("/api/tour", router);
   };
