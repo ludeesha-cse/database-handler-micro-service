@@ -13,6 +13,7 @@ module.exports = mongoose => {
         placesToVisit: {type: Array, required: false}, // array of places to visit contains locationID
         
       },
+      
       { timestamps: true }
     );
   
