@@ -12,7 +12,7 @@ exports.create = async (req, res) => {
 
   const userID = req.body.userID;
   const tripID = req.body.tripID;
-  const Hotel_id = req.body.hotel_id;
+  
 
   try {
     // Check if a document with the same userID and trip_id exists
