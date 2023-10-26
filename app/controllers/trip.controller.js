@@ -2,6 +2,8 @@ const db = require("../models");
 const Trip = db.trip;
 const {createHotel} = require("./hotel.controller.js");
 
+
+
 // Create and Save a new trip
 exports.create = async (req, res) => {
   // Validate request
@@ -45,6 +47,8 @@ exports.create = async (req, res) => {
   }
 };
 
+
+
 //find all trips with userID
 exports.findAllWithUserID = (req, res) => {
   const userID = req.params.userID; // Get the city parameter from the request URL
@@ -61,6 +65,8 @@ exports.findAllWithUserID = (req, res) => {
         .send({ message: "Error retrieving trips in the city=" + city });
     });
 };
+
+
 
 // Retrieve all Trip from the database.
 exports.findAll = (req, res) => {
@@ -79,6 +85,9 @@ exports.findAll = (req, res) => {
     });
 };
 
+
+
+
 // Find a single trip with an id
 exports.findOne = (req, res) => {
   const tripID = req.params.tripID;
@@ -95,6 +104,9 @@ exports.findOne = (req, res) => {
         .send({ message: "Error retrieving trip with id=" + tripID});
     });
 };
+
+
+
 
 // Update a trip by the id in the request
 exports.update = (req, res) => {
@@ -120,7 +132,9 @@ exports.update = (req, res) => {
       });
     });
 };
-                  
+
+
+
 // Delete a trip with the specified id in the request
 exports.delete = (req, res) => {
   const id = req.params.id;

@@ -28,12 +28,12 @@ exports.createHotel = async (req, res) => {
     // If no duplicate documents are found, create and save the new document
     const hotel = new Hotel({
       hotel_id: hotel_id,
+      userID: userID,
+      checkInOutDates: req.body.checkInOutDates,
+      room_no: req.body.room_no,
       hotel_name: req.body.hotel_name,
-      city: req.body.city,
       review_score: req.body.review_score,
-      review_score_word: req.body.review_score_word,
       min_total_price: req.body.min_total_price,
-      max_photo_url: req.body.max_photo_url,
     });
 
     const savedHotel = await hotel.save();
@@ -62,7 +62,7 @@ exports.findAllWithUserID = (req, res) => {
     });
 };
 
-// Retrieve all Hotels from the database.
+// Retrieve all Hotels from the database. not required right now
 exports.findAll = (req, res) => {
   const userID = req.query.userID;
   var condition = userID ? { userID: { $regex: new RegExp(userID), $options: "i" } } : {};
@@ -79,7 +79,7 @@ exports.findAll = (req, res) => {
     });
 };
 
-// Find a single Hotel with an id
+// Find a single Hotel with an id , not required right now
 exports.findOne = (req, res) => {
   const hotel_id = req.params.hotel_id;
 
@@ -97,6 +97,7 @@ exports.findOne = (req, res) => {
 };
 
 // Update a Hotel by the id in the request
+// must be changed to update by hotel_id+userID
 exports.update = (req, res) => {
   if (!req.body) {
     return res.status(400).send({
@@ -122,6 +123,7 @@ exports.update = (req, res) => {
 };
                   
 // Delete a Hotel with the specified id in the request
+// must be changed to delete by hotel_id+userID
 exports.delete = (req, res) => {
   const id = req.params.id;
 
@@ -144,7 +146,7 @@ exports.delete = (req, res) => {
     });
 };
 
-// Delete all Hotels from the database.
+// Delete all Hotels from the database., not required right now
 exports.deleteAll = (req, res) => {
   Hotel.deleteMany({})
     .then(data => {

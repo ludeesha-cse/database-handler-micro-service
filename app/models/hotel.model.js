@@ -1,14 +1,14 @@
 module.exports = mongoose => {
     var schema = mongoose.Schema(
-      {
+      { 
+        userID: {type: String, required: true},
         hotel_id: {type: String, required: true},
-        room_no: {type: String, required: true},
-        hotel_name: {type: String, required: true},
-        city: {type: String, required: true},
-        review_score: {type: Number, required: true},
-        review_score_word: {type: String, required: true},
-        min_total_price: {type: Number, required: true},
-        max_photo_url: {type: String, required: true},
+        checkInOutDates: {type: Array, required: true},
+        room_no: {type: Number, required: true},
+        hotel_name: {type: String, required: false},
+        review_score: {type: Number, required: false},
+        min_total_price: {type: Number, required: false},
+        
       },
       { timestamps: true }
     );

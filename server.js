@@ -35,7 +35,7 @@ app.get("/", (req, res) => {
 
 require("./app/routes/user.routes")(app);
 require("./app/routes/trip.routes")(app);
-require("./app/routes/tour.routes")(app);
+// require("./app/routes/tour.routes")(app);
 // require("./app/routes/hotel.routes")(app);
 
 // set port, listen for requests
